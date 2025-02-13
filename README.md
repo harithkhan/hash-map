@@ -1,2 +1,3 @@
-# non-bundle-template
-A template for projects that do not require a bundler such as webpack. Dependencies include eslint, prettier, node and nodemon.
+# Hash Maps
+
+A project to demonstrate understanding of hash maps in JavaScript. Part of The Odin Project curriculum.
