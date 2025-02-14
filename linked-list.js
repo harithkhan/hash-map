@@ -1,7 +1,8 @@
 /* eslint-disable max-classes-per-file */
 
 class Node {
-    constructor(value = null, nextNode = null) {
+    constructor(key, value = null, nextNode = null) {
+        this.key = key;
         this.value = value;
         this.nextNode = nextNode;
     }
@@ -9,11 +10,12 @@ class Node {
 
 export class LinkedList {
     constructor() {
-        this.head = null;
+        this.key = null;
+        this.value = null;
     }
 
-    append(value) {
-        const newNode = new Node(value);
+    append(key, value) {
+        const newNode = new Node(key, value);
         if (this.head === null) {
             this.head = newNode;
         } else {
@@ -25,8 +27,8 @@ export class LinkedList {
         }
     }
 
-    prepend(value) {
-        this.head = new Node(value, this.head);
+    prepend(key, value) {
+        this.head = new Node(key, value, this.head);
     }
 
     size() {
@@ -124,13 +126,13 @@ export class LinkedList {
         return string;
     }
 
-    insertAt(value, index) {
+    insertAt(key, value, index) {
         let counter = 0;
         let current = this.head;
         if (index < 0 || index >= this.size()) return null;
         while (current !== null) {
             if (index === 0) {
-                this.head = { value: value, nextNode: current };
+                this.head = { key, value, nextNode: current };
                 return;
             }
             if (counter < index - 1) {
@@ -139,7 +141,7 @@ export class LinkedList {
             }
             if (counter === index - 1) {
                 const adjacentNode = current.nextNode;
-                current.nextNode = { value: value, nextNode: adjacentNode };
+                current.nextNode = { key, value, nextNode: adjacentNode };
                 break;
             }
         }
