@@ -35,7 +35,7 @@ export class LinkedList {
         let counter = 0;
         let current = this.head;
         while (current !== null) {
-            counter++;
+            counter += 1;
             current = current.nextNode;
         }
         return counter;
@@ -64,7 +64,7 @@ export class LinkedList {
         while (current !== null) {
             if (count === index) return current;
             current = current.nextNode;
-            count++;
+            count += 1;
         }
         return null;
     }
@@ -101,7 +101,7 @@ export class LinkedList {
             if (current.value === value) {
                 return counter;
             }
-            counter++;
+            counter += 1;
             current = current.nextNode;
         }
         return null;
@@ -137,7 +137,7 @@ export class LinkedList {
             }
             if (counter < index - 1) {
                 current = current.nextNode;
-                counter++;
+                counter += 1;
             }
             if (counter === index - 1) {
                 const adjacentNode = current.nextNode;
@@ -159,7 +159,7 @@ export class LinkedList {
         while (current !== null) {
             if (counter < index - 1) {
                 current = current.nextNode;
-                counter++;
+                counter += 1;
             }
             if (counter === index - 1) {
                 const adjacentNode = current.nextNode.nextNode;
