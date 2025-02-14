@@ -28,26 +28,24 @@ export class HashMap {
             return;
         }
         const existingList = buckets[index][0];
-        console.log(`buckets: ${buckets}`)
-        console.log(`existing: ${existingList}`)
         let current = existingList.head;
-        console.log(`current: ${current}`);
         while (current !== null) {
             if (current.key === key) {
                 current.value = value;
                 return;
             }
+            if (current.nextNode === null) {
+                existingList.append(key, value);
+                return;
+            }
             current = current.nextNode;
         }
-
-        // if (existingList.key !== key) {
-
-        // }
     }
 }
 
 const test = new HashMap();
 test.set("Apples", 5);
 test.set("Apples", 7);
+test.set("i", 50);
 console.log(test);
 console.log(JSON.stringify(test.buckets, null, 2));
