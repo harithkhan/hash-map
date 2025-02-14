@@ -44,6 +44,7 @@ export class HashMap {
 
     get(key) {
         const index = this.hash(key);
+        if (!this.buckets[index]?.[0]) return null;
         const bucket = this.buckets[index][0];
         let current = bucket.getHead();
         while (current !== null) {
@@ -62,4 +63,4 @@ test.set("Apples", 7);
 test.set("i", 50);
 console.log(test);
 console.log(JSON.stringify(test.buckets, null, 2));
-console.log(test.get("i"));
+console.log(test.get("f"));
