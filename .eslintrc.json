@@ -5,7 +5,8 @@
         "prettier/prettier": "error",
         "no-console": "off", 
         "import/prefer-default-export": "off", 
-        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }] 
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+        "import/extensions": ["error", "ignorePackages"] 
     },
     "env": {
         "browser": true, 
