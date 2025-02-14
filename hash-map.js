@@ -20,14 +20,13 @@ export class HashMap {
     set(key, value) {
         const { buckets } = this;
         const index = this.hash(key);
-        console.log(`Index: ${index}`);
         if (!buckets[index]) {
             const newLinkedList = new LinkedList();
             newLinkedList.append(key, value);
-            buckets[index] = [newLinkedList];
+            buckets[index] = newLinkedList;
             return;
         }
-        const existingList = buckets[index][0];
+        const existingList = buckets[index];
         let current = existingList.head;
         while (current !== null) {
             if (current.key === key) {
@@ -44,8 +43,8 @@ export class HashMap {
 
     get(key) {
         const index = this.hash(key);
-        if (!this.buckets[index]?.[0]) return null;
-        const bucket = this.buckets[index][0];
+        if (!this.buckets[index]) return null;
+        const bucket = this.buckets[index];
         let current = bucket.getHead();
         while (current !== null) {
             if (current.key === key) {
