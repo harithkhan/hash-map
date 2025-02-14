@@ -49,10 +49,9 @@ export class LinkedList {
         let current = this.head;
         if (current.nextNode === null) {
             return current;
-        } else {
-            while (current.nextNode !== null) {
-                current = current.nextNode;
-            }
+        }
+        while (current.nextNode !== null) {
+            current = current.nextNode;
         }
         return current;
     }
