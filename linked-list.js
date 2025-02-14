@@ -10,8 +10,7 @@ class Node {
 
 export class LinkedList {
     constructor() {
-        this.key = null;
-        this.value = null;
+        this.head = null;
     }
 
     append(key, value) {
