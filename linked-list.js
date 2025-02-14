@@ -128,7 +128,7 @@ export class LinkedList {
     insertAt(key, value, index) {
         let counter = 0;
         let current = this.head;
-        if (index < 0 || index >= this.size()) return null;
+        if (index < 0 || index >= this.size()) return;
         while (current !== null) {
             if (index === 0) {
                 this.head = { key, value, nextNode: current };
@@ -141,13 +141,13 @@ export class LinkedList {
             if (counter === index - 1) {
                 const adjacentNode = current.nextNode;
                 current.nextNode = { key, value, nextNode: adjacentNode };
-                break;
+                return;
             }
         }
     }
 
     removeAt(index) {
-        if (index < 0 || index >= this.size()) return null;
+        if (index < 0 || index >= this.size()) return;
         if (index === 0) {
             const adjacentNode = this.head.nextNode;
             this.head = adjacentNode;
