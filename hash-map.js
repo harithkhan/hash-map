@@ -130,6 +130,21 @@ export class HashMap {
         });
         return arrOfValues;
     }
+
+    entries() {
+        const arrOfEntries = [];
+        const { buckets } = this;
+        buckets.forEach((bucket) => {
+            if (bucket) {
+                let current = bucket.getHead();
+                while (current != null) {
+                    arrOfEntries.push([current.key, current.value]);
+                    current = current.nextNode;
+                }
+            }
+        });
+        return arrOfEntries;
+    }
 }
 
 const test = new HashMap();
@@ -142,3 +157,4 @@ console.log(JSON.stringify(test.buckets, null, 2));
 console.log(test.length());
 console.log(test.keys());
 console.log(test.values());
+console.log(test.entries());
