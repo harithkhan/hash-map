@@ -17,3 +17,8 @@ test.set("lion", "golden");
 
 console.log(test);
 console.log(JSON.stringify(test, null, 2));
+console.log(`Length before reassignments: ${test.length()}`);
+test.set("apple", "green");
+test.set("lion", "brown");
+console.log(test.entries());
+console.log(`Length after reassignments: ${test.length()}`);
