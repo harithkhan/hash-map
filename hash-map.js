@@ -96,6 +96,10 @@ export class HashMap {
         });
         return counter;
     }
+
+    clear() {
+        this.buckets = new Array(this.capacity);
+    }
 }
 
 const test = new HashMap();
@@ -103,6 +107,7 @@ test.set("Jack Fruit", 5);
 test.set("Apples", 7);
 test.set("Grapes", 10);
 test.set("i", 50);
+test.clear();
 console.log(test);
 console.log(JSON.stringify(test.buckets, null, 2));
 console.log(test.length());
