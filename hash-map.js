@@ -159,15 +159,3 @@ export class HashMap {
         return arrOfEntries;
     }
 }
-
-const test = new HashMap();
-test.set("Jack Fruit", 5);
-test.set("Apples", 7);
-test.set("Grapes", 10);
-test.set("i", 50);
-console.log(test);
-console.log(JSON.stringify(test.buckets, null, 2));
-console.log(test.length());
-console.log(test.keys());
-console.log(test.values());
-console.log(test.entries());
