@@ -85,16 +85,30 @@ export class HashMap {
         }
         return false;
     }
+
+    length() {
+        let counter = 0;
+        const { buckets } = this;
+        buckets.forEach((bucket) => {
+            if (bucket) {
+                let current = bucket.getHead();
+                while (current != null) {
+                    if (current.key) {
+                        counter += 1;
+                    }
+                    current = current.nextNode;
+                }
+            }
+        });
+        return counter;
+    }
 }
 
 const test = new HashMap();
-test.set("Apples", 5);
+test.set("Jack Fruit", 5);
 test.set("Apples", 7);
+test.set("Grapes", 10);
 test.set("i", 50);
 console.log(test);
 console.log(JSON.stringify(test.buckets, null, 2));
-console.log(test.get("i"));
-console.log(test.has("poop"));
-console.log(test.remove("poop"));
-console.log(JSON.stringify(test.buckets, null, 2));
-
+console.log(test.length());
