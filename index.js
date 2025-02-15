@@ -14,11 +14,7 @@ test.set("ice cream", "white");
 test.set("jacket", "blue");
 test.set("kite", "pink");
 test.set("lion", "golden");
+test.set("moon", "silver");
 
 console.log(test);
 console.log(JSON.stringify(test, null, 2));
-console.log(`Length before reassignments: ${test.length()}`);
-test.set("apple", "green");
-test.set("lion", "brown");
-console.log(test.entries());
-console.log(`Length after reassignments: ${test.length()}`);
