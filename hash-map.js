@@ -91,13 +91,7 @@ export class HashMap {
         const { buckets } = this;
         buckets.forEach((bucket) => {
             if (bucket) {
-                let current = bucket.getHead();
-                while (current != null) {
-                    if (current.key) {
-                        counter += 1;
-                    }
-                    current = current.nextNode;
-                }
+                counter += bucket.size();
             }
         });
         return counter;
