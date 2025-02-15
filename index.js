@@ -15,6 +15,7 @@ test.set("jacket", "blue");
 test.set("kite", "pink");
 test.set("lion", "golden");
 test.set("moon", "silver");
+test.set("moon", "white");
 
 console.log(test);
 console.log(JSON.stringify(test, null, 2));
