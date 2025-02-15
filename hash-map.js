@@ -68,6 +68,23 @@ export class HashMap {
         }
         return false;
     }
+
+    remove(key) {
+        const index = this.hash(key);
+        if (!this.buckets[index]) return false;
+        const bucket = this.buckets[index];
+        let current = bucket.getHead();
+        let bucketIndex = 0;
+        while (current != null) {
+            if (current.key === key) {
+                bucket.removeAt(bucketIndex);
+                return true;
+            }
+            current = current.nextNode;
+            bucketIndex += 1;
+        }
+        return false;
+    }
 }
 
 const test = new HashMap();
@@ -78,3 +95,6 @@ console.log(test);
 console.log(JSON.stringify(test.buckets, null, 2));
 console.log(test.get("i"));
 console.log(test.has("poop"));
+console.log(test.remove("poop"));
+console.log(JSON.stringify(test.buckets, null, 2));
+
