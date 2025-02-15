@@ -54,6 +54,20 @@ export class HashMap {
         }
         return null;
     }
+
+    has(key) {
+        const index = this.hash(key);
+        if (!this.buckets[index]) return false;
+        const bucket = this.buckets[index];
+        let current = bucket.getHead();
+        while (current !== null) {
+            if (current.key === key) {
+                return true;
+            }
+            current = current.nextNode;
+        }
+        return false;
+    }
 }
 
 const test = new HashMap();
@@ -62,4 +76,5 @@ test.set("Apples", 7);
 test.set("i", 50);
 console.log(test);
 console.log(JSON.stringify(test.buckets, null, 2));
-console.log(test.get("f"));
+console.log(test.get("i"));
+console.log(test.has("poop"));
