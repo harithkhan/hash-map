@@ -17,7 +17,20 @@ export class HashMap {
         return hashCode;
     }
 
+    #checkTreshold() {
+        const treshold = this.loadFactor * this.capacity;
+        if (this.length() > treshold) {
+            const currentEntries = this.entries();
+            this.clear();
+            this.capacity *= 2;
+            currentEntries.forEach((entry) => {
+                this.set(entry[0], entry[1]);
+            });
+        }
+    }
+
     set(key, value) {
+        this.#checkTreshold();
         const { buckets } = this;
         const index = this.hash(key);
         if (!buckets[index]) {
