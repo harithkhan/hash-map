@@ -18,8 +18,8 @@ export class HashMap {
     }
 
     #checkTreshold() {
-        const treshold = this.loadFactor * this.capacity;
-        if (this.length() >= treshold) {
+        const threshold = this.loadFactor * this.capacity;
+        if (this.length() >= threshold) {
             const currentEntries = this.entries();
             this.clear();
             this.capacity *= 2;
